@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #752222;
+  padding: 20px;
+}
+.container {
+  background: rgb(198, 139, 139);
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+form {
+  display: flex;
+  gap: 10px;
+}
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+}
+button {
+  padding: 10px;
+  border-radius: 5px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #291010;
+}

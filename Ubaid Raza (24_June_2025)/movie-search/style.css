@@ -1,0 +1,59 @@
+body {
+  font-family: sans-serif;
+  background: #222;
+  color: white;
+  padding: 20px;
+  margin: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  flex: 1;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #666;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.movie {
+  background: #333;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.movie img {
+  width: 100px;
+  height: auto;
+  border-radius: 4px;
+}

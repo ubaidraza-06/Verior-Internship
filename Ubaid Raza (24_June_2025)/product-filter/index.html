@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Filter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🛒 Product Store</h1>
+    <div class="filters">
+      <input type="text" id="search" placeholder="Search products..." />
+      <select id="category-filter">
+        <option value="">All Categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Books">Books</option>
+        <option value="Accessories">Accessories</option>
+        <option value="Furniture">Furniture</option>
+      </select>
+    </div>
+    <div id="product-list" class="product-grid"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
