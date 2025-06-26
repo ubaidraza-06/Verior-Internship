@@ -1,0 +1,46 @@
+body{margin:0;font-family:'Segoe UI',sans-serif;background:#f5f7fb}
+.shop-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 2rem;background:#132c51;color:#fff;
+}
+.cart-btn{
+  background:#f9f7fb;color:#050608;border:none;border-radius:50px;
+  padding:.5rem 1rem;font-size:1.1rem;cursor:pointer
+}
+.products{
+  display:grid;gap:1.5rem;padding:2rem;
+  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+}
+.product{
+  background:#132c51;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.08);
+  padding:1rem;text-align:center;transition:transform .15s;
+}
+.product:hover{transform:translateY(-4px)}
+.product img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+.product h3{margin:.7rem 0 .3rem;font-size:1.1rem;color: #f5f7fb;}
+.product p{margin:0 0 .8rem;color:#fafbfc}
+.product button{
+  background:#5a6f8f;color:#fff;border:none;border-radius:8px;
+  padding:.5rem 1rem;cursor:pointer;font-weight:500;
+}
+.sidebar{
+  position:fixed;top:0;right:0;width:320px;height:100%;
+  background:#fff;box-shadow:-4px 0 12px rgba(0,0,0,.1);animation:slide .3s;
+  display:flex;flex-direction:column
+}
+@keyframes slide{from{transform:translateX(100%)}to{transform:translateX(0)}}
+.sidebar header{
+  display:flex;justify-content:space-between;align-items:center; height: 85px;;
+  background:#132c51;color:#fff;padding:1rem 1.2rem
+}
+.close{
+  background:transparent;border:none;font-size:1.6rem;color:#fff;cursor:pointer
+}
+.cart-item{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.6rem 1rem;border-bottom:1px solid #010407
+}
+.cart-item button{
+  background:#132c51;border:none;font-size:1rem;cursor:pointer;color:#fdfbfc;border-radius: 4px;
+}
+.total{padding:1rem;font-weight:600;text-align:right}
