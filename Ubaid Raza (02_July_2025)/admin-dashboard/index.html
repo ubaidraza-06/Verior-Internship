@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            transitionProperty: {
+              width: 'width',
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+      .transition-transform {
+        transition: transform 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <aside id="sidebar" class="fixed z-40 w-64 bg-white dark:bg-gray-800 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out h-full">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+          <h1 class="text-lg font-bold tracking-wide">Dashboard</h1>
+          <button id="sidebarClose" class="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">✕</button>
+        </div>
+        <nav class="px-4 py-6 space-y-2 text-sm">
+          <a href="#" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">🏠 Home</a>
+          <a href="#" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">📊 Analytics</a>
+          <a href="#" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">👥 Users</a>
+          <a href="#" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">⚙️ Settings</a>
+        </nav>
+      </aside>
+
+      <!-- Main content wrapper -->
+      <div class="flex flex-col flex-1 md:ml-64">
+        <!-- Top navbar -->
+        <header class="sticky top-0 z-30 flex items-center justify-between h-16 px-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shadow">
+          <div class="flex items-center gap-2">
+            <button id="sidebarOpen" class="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700">☰</button>
+            <span class="font-semibold text-lg">Welcome, Admin</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" id="themeToggle" class="sr-only peer">
+              <div class="w-10 h-5 bg-gray-200 rounded-full peer dark:bg-gray-600 peer-checked:bg-blue-600 transition-colors"></div>
+              <span class="ml-2 text-sm hidden sm:inline">Dark Mode</span>
+            </label>
+          </div>
+        </header>
+
+        <!-- Main area -->
+        <main class="flex-1 overflow-y-auto p-6">
+          <section class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Cards -->
+            <article class="h-40 bg-blue-400 dark:bg-gray-800 rounded-xl shadow p-5">
+              <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-lg font-semibold">Total Users</h2>
+              </div>
+              <p class="text-3xl font-bold">12.5k</p>
+            </article>
+
+            <article class="h-40 bg-green-400 dark:bg-gray-800 rounded-xl shadow p-5">
+              <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-lg font-semibold">Revenue</h2>
+              </div>
+              <p class="text-3xl font-bold">$32.4k</p>
+            </article>
+
+            <article class="h-40 bg-purple-400 dark:bg-gray-800 rounded-xl shadow p-5">
+              <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-lg font-semibold">Active Sessions</h2>
+              </div>
+              <p class="text-3xl font-bold">813</p>
+            </article>
+
+            <article class="h-40 bg-cyan-400 dark:bg-gray-800 rounded-xl shadow p-5">
+              <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-lg font-semibold">New Signups</h2>
+              </div>
+              <p class="text-3xl font-bold">342</p>
+            </article>
+
+            <article class="h-40 bg-red-400 dark:bg-gray-800 rounded-xl shadow p-5">
+              <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-lg font-semibold">Support Tickets</h2>
+              </div>
+              <p class="text-3xl font-bold">45</p>
+            </article>
+
+            <article class="h-40 bg-yellow-400 dark:bg-gray-800 rounded-xl shadow p-5">
+              <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-lg font-semibold">Pending Tasks</h2>
+              </div>
+              <p class="text-3xl font-bold">18</p>
+            </article>
+
+            <!-- Charts -->
+            <article class="h-72 col-span-full dark:bg-gray-800 rounded-xl shadow p-5">
+              <div class="flex items-center gap-3 mb-4">
+                <h2 class="text-lg font-semibold">Monthly Overview</h2>
+              </div>
+              <canvas id="monthlyOverviewChart" class="w-full" style="height: 180px;"></canvas> 
+            </article>
+
+            <article class="h-72 col-span-full bg-white dark:bg-gray-800 rounded-xl shadow p-5">
+              <div class="flex items-center gap-3 mb-4">
+                <h2 class="text-lg font-semibold">User Growth</h2>
+              </div>
+              <canvas id="userGrowthChart" class="w-full" style="height: 180px;"></canvas>
+            </article>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx1 = document.getElementById('monthlyOverviewChart').getContext('2d');
+      new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+          datasets: [{
+            label: 'Revenue',
+            data: [12000, 19000, 3000, 5000, 20000],
+            borderColor: 'rgba(59, 130, 246, 1)',
+            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+            fill: true,
+            tension: 0.4
+          }]
+        }
+      });
+
+      const ctx2 = document.getElementById('userGrowthChart').getContext('2d');
+      new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+          datasets: [{
+            label: 'Users',
+            data: [300, 500, 700, 600, 800],
+            backgroundColor: 'rgba(96, 165, 250, 0.7)',
+            borderColor: 'rgba(96, 165, 250, 1)',
+            borderWidth: 1
+          }]
+        }
+      });
+    </script>
+    <script src="assets/main.js"></script>
+  </body>
+</html>
