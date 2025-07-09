@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: #f5f5f5;
+  color: #222;
+}
+
+/* --- Header (Sticky) --- */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #fffbea;
+    padding: 0.9px;
+    border-bottom: 2px solid #ccc;
+    z-index: 100;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #222;
+}
+
+header h6 {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 5px;
+}
+
+header p {
+    font-size: 0.9rem;
+    color: #777;
+}
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.lead-story {
+  grid-column: 1 / -1;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+}
+
+.story {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  border-radius: 30px;
+}
+/* --- Footer --- */
+footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #161313;
+    padding: 25px;
+    background-color: #b48d8d;
+    margin-top: 40px;
+}
+.story h3 {
+  margin-top: 0;
+}
